@@ -1,0 +1,18 @@
+service: dave-first-lambda
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: dev
+  region: us-east-1
+
+plugins:
+  - serverless-plugin-typescript
+
+functions:
+      davidSayHello:
+        handler:  src/handler.davidSayHello
+        events:
+          - http:
+              path: hello
+              method: post
